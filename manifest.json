@@ -1,0 +1,14 @@
+{
+    "$schema": "https://smapi.io/schemas/manifest.json",
+    "Name": "Davyn",
+    "Author": "Pooh and Valefor",
+    "Version": "1.0.0",
+    "Description": "Make Davyn appears in game.",
+    "UniqueID": "poohnhi.Davyn",
+    "UpdateKeys": [],
+    "ContentPackFor": {
+        "UniqueID": "Pathoschild.ContentPatcher"
+    },
+    "Dependencies": [
+    ]
+}

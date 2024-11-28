@@ -1,0 +1,62 @@
+{
+    "$schema": "https://smapi.io/schemas/content-patcher.json",
+    "Format": "2.0.0",
+    "Changes": [
+        
+        // File Load
+        {
+            "LogName": "Load blank.json to create Davyn's dialogue and schedule file",
+            "Action": "Load",
+            "Target": "Characters/Dialogue/poohnhi.Davyn, Characters/schedules/poohnhi.Davyn, Strings/schedules/poohnhi.Davyn",
+            "FromFile": "Assets/blank.json"
+        },
+        {
+            "LogName": "Load Davyn's Portraits and Sprites to the game",
+            "Action": "Load",
+            "Target": "Portraits/poohnhi.Davyn, Characters/poohnhi.Davyn",
+            "FromFile": "Assets/{{TargetPathOnly}}/{{TargetWithoutPath}}.png" // Must load the base first to avoid errors
+        },
+        {
+            "LogName": "Npc Dispositions 1.6",
+            "Action": "EditData",
+            "Target": "Data/Characters",
+            "Entries": {
+                "poohnhi.Davyn": {
+                    // Basic infos
+                    "DisplayName": "{{i18n:poohnhi.Davyn.DisplayName}}", // This would normally use {{i18n:}} to support translations
+                    // Birthday
+                    "BirthSeason": "winter",
+                    "BirthDay": 22,
+                    // Social features
+                    "CanSocialize": true,
+                    "CanReceiveGifts": false,
+                    "Home": [{
+                        "Id": "Home",
+                        "Location": "BusStop",
+                        "Tile": {
+                            "X": 22,
+                            "Y": 3
+                        },
+                        "Direction": "Down"
+                    }],
+                }
+            }
+        },
+        // Edit Davyn's Dialogue
+        {
+            "LogName": "Edit Davyn Dialogue",
+            "Action": "EditData",
+            "Target": "Characters/Dialogue/poohnhi.Davyn",
+            "Entries": {
+                // Daily dialogues
+                "Mon": "It's a nice Monday, isn't it?",
+                "Tue": "Hello. How are you today?",
+                "Wed": "Good morning. Have you finished your farm work?",
+                "Thu": "Have a nice day.",
+                "Fri": "Hi! Are you excited for the weekends?",
+                "Sat": "Greetings.",
+                "Sun": "Happy weekend!"
+            }
+        }
+    ]
+}
